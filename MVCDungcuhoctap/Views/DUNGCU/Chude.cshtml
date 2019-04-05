@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MVCDungcuhoctap.Models.CHUDE>
+<p class="lead" style="text-align:center; color:red">LOẠI DỤNG CỤ</p>
+
+<div class="list-group">
+    @foreach(var item in Model)
+    {
+        <a href="@Url.Action("SPTheochude","DUNGCU",new {id= item.MaCD})" class="list-group-item">
+        @item.TenCD
+           </a>
+}
+</div>

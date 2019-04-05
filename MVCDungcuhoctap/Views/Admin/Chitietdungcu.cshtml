@@ -1,0 +1,68 @@
+﻿@model MVCDungcuhoctap.Models.DUNGCU
+
+@{
+    ViewBag.Title = "Chitietdungcu";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT DỤNG CỤ</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên dụng cụ:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tendungcu)
+        </dd>
+        <dt>
+            Giá bán:
+        </dt>
+        <dd>
+            @String.Format("{0:0,0}", Model.Giaban) VNĐ
+        </dd>
+        <dt>
+            Mô tả:
+        </dt>
+        <dd style="width:600px; text-align:justify">
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+        <dt>
+            Ảnh bìa:
+        </dt>
+        <dd>
+            <img src="@Url.Content("~/ImageSRC/"+  Model.Anhbia)" width="120" />
+        </dd>
+        <dt>
+            Ngày cập nhật:
+        </dt>
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
+        </dd>
+
+
+        <dt>
+            Số lượng tồn:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+        <dt>
+            Chủ đề:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CHUDE.TenCD)
+        </dd>
+        <dt>
+            Nhà xuất bản:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HANGSANXUAT.TenHSX)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ĐIỀU CHỈNH", "Suadungcu", new { id = Model.Madungcu }) |
+    @Html.ActionLink("TRỞ VỀ", "DUNGCU")
+</p>

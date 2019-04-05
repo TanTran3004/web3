@@ -1,0 +1,50 @@
+﻿@using MVCDungcuhoctap.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<DUNGCU>
+@{
+    ViewBag.Title = "SPTheochude";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<div class="row">
+    @foreach (var dungcu in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details", "DUNGCU", new { id = dungcu.Madungcu })"/>
+                    <img alt="@dungcu.Tendungcu" src="~/ImageSRC/@dungcu.Anhbia" width="200" />
+                    <div>
+                        <br />
+                        <h4 style="text-align:center">
+                            @dungcu.Tendungcu
+                        </h4>
+                        <p></p>
+                    </div>
+                    <div style="text-align:center">
+                        Giá: @String.Format("{0:0,0}", @dungcu.Giaban) đồng
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">15 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star">
+                            </span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                        </p>
+                    </div>
+            </div>
+        </div>
+    }
+</div>
+@**@
+<div style="text-align:center;padding-top:20px">
+    <div class="menutrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+</div>
+<style>
+    .menutrang {
+        display: inline;
+    }
+</style>

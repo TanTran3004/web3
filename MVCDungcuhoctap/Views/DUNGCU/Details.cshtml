@@ -1,0 +1,43 @@
+﻿
+<style type="text/css">
+    #Datmua a{
+        clear:both;
+        background-color:deeppink;
+        color:black;
+        width:120px;
+        height:35px;
+        display:block;
+        float:right;
+        text-align:center;
+        padding-top:10px;
+        text-decoration:none;
+        font-weight:bold;
+    }
+    #Datmua a:hover{
+        background-color:gray;
+        color:deeppink;
+    }
+</style>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}   
+<h2>THÔNG TIN SẢN PHẨM</h2>
+<div>
+    <div style="width:40%; float:left; border-left:dotted 1px; border-color:aqua">
+        <img src="~/ImageSRC/@Model.Anhbia" width="100" />
+    </div>
+    <div style="width:60%; float:left; padding:10px">
+        <h4 style="font-weight:bold; color:deeppink">Tên sản phẩm: @Model.Tendungcu</h4>
+        <p style="text-align:justify"><span style="font-weight:bold">Mô tả: @Model.Mota</span></p>
+        <p style="font-weight:bold">Giá bán:<span style="color:red; font-size:16px">@String.Format("{0:0,0}", @Model.Giaban) đồng</span></p>
+    </div>
+    <div id="Datmua">
+        <a href="@Url.Action("ThemGiohang", "Giohang", new { @iMaDC= @Model.Madungcu, @strURL=Request.Url.ToString() })" class="list-group-item">
+            Đặt mua
+        </a>
+    </div>
+</div>
+
+
+
